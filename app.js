@@ -88,7 +88,7 @@ async function scrapeChessTidbits() {
 // Format the text with HTML for Telegram
 function formatCodeTicklerPost(text) {
     const parts = text.split('. ');
-    let formatted = '<b>CodeTickler’s Update</b>\n\n'; // Fixed "CodeTickler’s" typo
+    let formatted = '<b>Hello CodeTicklers </b>\n\n'; // Fixed "CodeTickler’s" typo
     
     formatted += `${parts[0]}.\n\n`;
     formatted += parts.slice(1, -2).join('.\n') + '.\n\n';
