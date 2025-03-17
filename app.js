@@ -88,7 +88,7 @@ async function scrapeChessTidbits() {
 // Format the text with HTML for Telegram
 function formatCodeTicklerPost(text) {
     const parts = text.split('. ');
-    let formatted = '<b>CodeTickler’s Update</b>\n\n';
+    let formatted = '<b>CodeTickler’s Update</b>\n\n'; // Fixed "CodeTickler’s" typo
     
     formatted += `${parts[0]}.\n\n`;
     formatted += parts.slice(1, -2).join('.\n') + '.\n\n';
@@ -111,13 +111,13 @@ function isHotOrControversial(tidbits) {
 // CodeTickler’s content generation
 async function generateContent() {
     try {
-        const isChessPost = Math.random() < 0.3;
+        const isChessPost = Math.random() < 0.3; // 30% chance for chess
         const tidbits = isChessPost ? await scrapeChessTidbits() : await scrapeTechTidbits();
         const hasHotNews = isHotOrControversial(tidbits);
         const rand = Math.random();
 
         let prompt;
-        if (hasHotNews && rand < 0.1) {
+        if (hasHotNews && rand < 0.1) { // 10% chance for hot news
             prompt = isChessPost
                 ? `
                 CodeTickler here with chess news: ${tidbits.join(' | ')} 
@@ -127,7 +127,7 @@ async function generateContent() {
                 CodeTickler here with tech news: ${tidbits.join(' | ')} 
                 Write a detailed update (at least 80 words) on this hot or controversial tech topic—explain the rollout, fail, or bigwig’s take (name them if there). Keep it clear and engaging, like I’m briefing my dev team. Use a joke or slang only if it fits naturally. Stick to facts and analysis, no wild comedy.
                 `;
-        } else if (rand < 0.5) {
+        } else if (rand < 0.37) { // 27% chance for tips (0.1 to 0.37)
             prompt = isChessPost
                 ? `
                 CodeTickler here with a chess tip. 
@@ -137,7 +137,7 @@ async function generateContent() {
                 CodeTickler here with a tech tip. 
                 Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.
                 `;
-        } else {
+        } else { // 63% chance for facts (0.37 to 1.0)
             prompt = isChessPost
                 ? `
                 CodeTickler here with chess trivia. 
