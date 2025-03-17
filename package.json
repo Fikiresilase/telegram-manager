@@ -1,0 +1,23 @@
+{
+  "name": "telegram-manager",
+  "version": "1.0.0",
+  "main": "app.js", 
+  "scripts": {
+    "start": "node app.js", 
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "CodeTickler’s Telegram rant bot",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "axios": "^1.8.3",
+    "cheerio": "^1.0.0",
+    "express": "^4.21.2"
+    
+  },
+  "engines": {
+    "node": "18.x" 
+  }
+}
