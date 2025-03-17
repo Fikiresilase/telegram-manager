@@ -111,13 +111,13 @@ function isHotOrControversial(tidbits) {
 // CodeTickler’s content generation
 async function generateContent() {
     try {
-        const isChessPost = Math.random() < 0.3; // 30% chance for chess mode
+        const isChessPost = Math.random() < 0.3;
         const tidbits = isChessPost ? await scrapeChessTidbits() : await scrapeTechTidbits();
         const hasHotNews = isHotOrControversial(tidbits);
         const rand = Math.random();
 
         let prompt;
-        if (hasHotNews && rand < 0.1) { // 10% chance for hot/controversial news
+        if (hasHotNews && rand < 0.1) {
             prompt = isChessPost
                 ? `
                 CodeTickler here with chess news: ${tidbits.join(' | ')} 
@@ -127,7 +127,7 @@ async function generateContent() {
                 CodeTickler here with tech news: ${tidbits.join(' | ')} 
                 Write a detailed update (at least 80 words) on this hot or controversial tech topic—explain the rollout, fail, or bigwig’s take (name them if there). Keep it clear and engaging, like I’m briefing my dev team. Use a joke or slang only if it fits naturally. Stick to facts and analysis, no wild comedy.
                 `;
-        } else if (rand < 0.5) { // 40% chance for tips (0.1 to 0.5)
+        } else if (rand < 0.5) {
             prompt = isChessPost
                 ? `
                 CodeTickler here with a chess tip. 
@@ -137,7 +137,7 @@ async function generateContent() {
                 CodeTickler here with a tech tip. 
                 Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.
                 `;
-        } else { // 50% chance for obscure facts (0.5 to 1.0)
+        } else {
             prompt = isChessPost
                 ? `
                 CodeTickler here with chess trivia. 
@@ -188,12 +188,11 @@ async function postToTelegram(content) {
     }
 }
 
-// Web endpoint required by Heroku
+// Endpoints
 app.get('/', async (req, res) => {
     res.send('CodeTickler’s online! Hit /generate-and-post for the good stuff.');
 });
 
-// Manual trigger endpoint
 app.get('/generate-and-post', async (req, res) => {
     try {
         const content = await generateContent();
@@ -204,13 +203,9 @@ app.get('/generate-and-post', async (req, res) => {
     }
 });
 
-// Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ status: 'CodeTickler’s running!', timestamp: new Date() });
 });
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`CodeTickler’s on port ${PORT}!`);
-});
+// Export for Vercel serverless
+module.exports = app;
