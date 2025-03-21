@@ -111,7 +111,7 @@ function isHotOrControversial(tidbits) {
 // CodeTickler’s content generation
 async function generateContent() {
     try {
-        const isChessPost = Math.random() < 0.3; // 30% chance for chess
+        const isChessPost = null
         const tidbits = isChessPost ? await scrapeChessTidbits() : await scrapeTechTidbits();
         const hasHotNews = isHotOrControversial(tidbits);
         const rand = Math.random();
@@ -125,7 +125,7 @@ async function generateContent() {
                 `
                 : `
                 CodeTickler here with tech news: ${tidbits.join(' | ')} 
-                Write a detailed update (at least 80 words) on this hot or controversial tech topic—explain the rollout, fail, or bigwig’s take (name them if there). Keep it clear and engaging, like I’m briefing my dev team. Use a joke or slang only if it fits naturally. Stick to facts and analysis, no wild comedy.
+                Write a detailed update (at least 80 words) on this hot or controversial tech topic—explain the rollout, fail, or bigwig’s take (name them if there). Keep it clear and engaging, like I’m briefing my dev team. Use a joke or slang only if it fits naturally. Stick to facts and analysis, no wild comedy.use emojis as necessary
                 `;
         } else if (rand < 0.37) { // 27% chance for tips (0.1 to 0.37)
             prompt = isChessPost
@@ -135,7 +135,7 @@ async function generateContent() {
                 `
                 : `
                 CodeTickler here with a tech tip. 
-                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.this tips should be relatable for intermidiates, expersts even for some juniours it should be up to date info for example if it is react you should assume react 18 and above. but this could be any javscript framework
+                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.this tips should be relatable for intermidiates, expersts even for some juniours it should be up to date info for example if it is react you should assume react 18 and above. but this could be any javscript framework. use emojis as necessary
                 `;
         } else { // 63% chance for facts (0.37 to 1.0)
             prompt = isChessPost
