@@ -135,7 +135,7 @@ async function generateContent() {
                 `
                 : `
                 CodeTickler here with a tech tip. 
-                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.this tips should be relatable for intermidiates, expersts even for some juniours
+                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.this tips should be relatable for intermidiates, expersts even for some juniours it should be up to date info for example if it is react you should assume react 18 and above. but this could be any javscript framework
                 `;
         } else { // 63% chance for facts (0.37 to 1.0)
             prompt = isChessPost
