@@ -135,17 +135,17 @@ async function generateContent() {
                 `
                 : `
                 CodeTickler here with a tech tip. 
-                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.
+                Write a detailed guide (at least 80 words) on a practical JavaScript or framework technique—explain it clearly with steps or examples, like I’m coaching my dev team. Keep it useful and insightful. Add a light joke or slang only if it suits the vibe. No fluff, just solid advice.this tips should be relatable for intermidiates, expersts even for some juniours
                 `;
         } else { // 63% chance for facts (0.37 to 1.0)
             prompt = isChessPost
                 ? `
                 CodeTickler here with chess trivia. 
-                Write a detailed piece (at least 80 words) on a rare, fascinating chess fact—could be history, a quirky rule, or an odd match detail. Explain it clearly, like I’m sharing with my dev team. Keep it intriguing and factual. Drop a joke or slang only if it flows naturally. No overblown humor.
+                Write a detailed piece (at least 80 words) on a rare, fascinating chess fact—could be history, a quirky rule, or an odd match detail. Explain it clearly, like I’m sharing with my dev team. Keep it intriguing and factual. Drop a joke or slang only if it flows naturally. No overblown humor.use emojis as necessary
                 `
                 : `
                 CodeTickler here with tech trivia. 
-                Write a detailed piece (at least 80 words) on a rare, fascinating tech fact—could be old hardware, obscure code history, or a weird dev story. Explain it clearly, like I’m sharing with my dev team. Keep it intriguing and factual. Drop a joke or slang only if it flows naturally. No overblown humor.
+                Write a detailed piece (at least 80 words) on a rare, fascinating tech fact—could be about big tech companies or tech people, obscure code history, or a weird dev story. Explain it clearly, like I’m sharing with my dev team. Keep it intriguing and factual. Drop a joke or slang only if it flows naturally. No overblown humor. it should be relatable for the average layman and also  it should what we could take away from the story. use emojis as necessary  
                 `;
         }
 
